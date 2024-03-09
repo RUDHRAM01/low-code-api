@@ -1,0 +1,186 @@
+.dashboard{
+    display: flex;
+}
+
+.admin{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    background-color: rgba(0, 0, 0, 0.844);
+    color: white;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+
+.create-project{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0px 10px;
+}
+
+.create-project button{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #1d8dbf;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: fit-content;
+}
+
+.create-project button:hover{
+    background-color: #1d8cbf8c;
+}
+
+
+.projects-container{
+    display: flex;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: white;
+    height: auto;
+    height: 100%;
+}
+
+.search-project-container{
+    display: flex;
+    border-radius: 5px;
+    color: white;
+    width: 100%;
+    border: 1px solid #1d8dbf;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.search-project-container img{
+    height: 20px;
+    background-color: #1d8dbf;
+    padding: 10px; 
+}
+
+.search-project{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;  
+}
+
+.search-project{
+    height: 20px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.search-project::placeholder{
+    color: #1d8dbf;
+}
+
+.create-title{
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: black;
+    gap: 10px;
+}
+
+.create-project-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: white;
+    height: 100%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: black;
+}
+
+.form-group label{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.connect{
+    display: flex;
+    align-items: center;
+}
+
+.form-group input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #1d8dbf;
+}
+
+.create-project-gr-btn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    border: none;
+    padding: 10px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: fit-content;
+}
+
+.create-project-gr-btn button:nth-child(1){
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: fit-content;
+    border: 1px solid green;
+    color: green;
+}
+
+.create-project-gr-btn button:nth-child(2){
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: fit-content;
+    border: 1px solid red;
+    color: red;
+}   
+
+.create-project-gr-btn button:nth-child(1):hover{
+    background-color: green;
+    color: white;
+}
+
+.create-project-gr-btn button:nth-child(2):hover{
+    background-color: red;
+    color: white;
+}
