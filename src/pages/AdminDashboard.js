@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SideBar from "../components/common/SideBar";
 import AddIcon from "../assets/add.svg";
 import Search from "../assets/search.svg";
 import LaunchIcon from "../assets/launch.svg";
 import Mongo from "../assets/mongo.svg";
+import { getProjectApi } from "../api/get/GetProjectApi";
 
 function AdminDashboard() {
   const [isCreate, setIsCreate] = React.useState(false);
@@ -11,6 +12,17 @@ function AdminDashboard() {
     name: "",
     database: "",
   });
+  const [projects, setProjects] = React.useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await getProjectApi();
+      setProjects(response.data);
+      console.log(response.data);
+    };
+    fetchData();
+  }, []);
+
 
   return (
     <div className="dashboard">
