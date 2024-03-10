@@ -1,10 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import MongoDb from '../assets/mongodb.svg'
 import Api from '../assets/api.svg'
 import Code from '../assets/code.svg'
+import { LoginApi } from "../api/post/LoginApi";
+import {Error} from '../apiRes/ErrorCatch'
+
 function Login() {
   const navigate = useNavigate();
+  const [config, setConfig] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try{
+      const response = await LoginApi(config);
+      localStorage.setItem("token",response.data.message);
+      navigate("/admin");
+    }catch(e){ 
+      Error(e);
+    }
+  }
+
   return (
     <>
       <div className="login">
@@ -24,18 +43,28 @@ function Login() {
               alt="logo"
             />
           </div>
-          <form>
+          <form onSubmit={(e)=>{handleLogin(e)}}>
             <h3>Login Here</h3>
 
             <label for="username">Username</label>
-            <input type="text" placeholder="Email or Phone" id="username" />
+            <input type="text" placeholder="Email or Phone" id="username" onChange={(e)=>(setConfig((pre)=>(
+              {
+                ...pre,
+                username:e.target.value
+              }
+            )))}/>
 
             <label for="password">Password</label>
-            <input type="password" placeholder="Password" id="password" />
+            <input type="password" placeholder="Password" id="password" onChange={(e)=>(setConfig((pre)=>(
+              {
+                ...pre,
+                password:e.target.value
+              }
+            )))}/>
 
             <button>Log In</button>
             <p  onClick={() => {
-                  navigate("/signup");
+                  navigate("/sign-up");
                 }} className="question">
               Don't have an account?{" "}
               <span
