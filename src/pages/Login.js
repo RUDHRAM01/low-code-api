@@ -15,9 +15,11 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log(config);
     try{
       const response = await LoginApi(config);
-      localStorage.setItem("token",response.data.message);
+      var jsonString = JSON.stringify(response.data.message);
+      localStorage.setItem("user",jsonString);
       navigate("/admin");
     }catch(e){ 
       Error(e);
