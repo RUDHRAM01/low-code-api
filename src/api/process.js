@@ -4,9 +4,12 @@ import CryptoJS from 'crypto-js';
 import cryptoRandomString from 'crypto-random-string';
 
 const generateHeaders = () => {
-    const data = localStorage.getItem('loginInfo');
-    let to = JSON.parse(data);
-    to = to.token;
+    const data = localStorage.getItem('user');
+    let to;
+    if (data) {
+        to = JSON.parse(data);
+        to = to.token;
+    }
 
     const requestId = uuidv4();
     const token = cryptoRandomString({
