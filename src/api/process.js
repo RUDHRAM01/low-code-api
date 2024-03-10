@@ -28,7 +28,7 @@ const getRequest = (path) => {
         withCredentials: true,
         headers: generateHeaders(),
     };
-
+    console.log(process.env.REACT_APP_MAIN);
     return axios.get(`${process.env.REACT_APP_MAIN}${path}`, config)
 };
 
