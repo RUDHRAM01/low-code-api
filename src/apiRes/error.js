@@ -1,5 +1,7 @@
+const { toast } = require('react-hot-toast')
+
 const Error = (res) => {
-    return 'error'
+    return toast.error(res)
 }
 
 module.exports = {
