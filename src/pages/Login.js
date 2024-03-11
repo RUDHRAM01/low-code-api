@@ -5,6 +5,7 @@ import Api from '../assets/api.svg'
 import Code from '../assets/code.svg'
 import { LoginApi } from "../api/post/LoginApi";
 import {Error} from '../apiRes/ErrorCatch'
+import "../styles/login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function Login() {
       const response = await LoginApi(config);
       var jsonString = JSON.stringify(response.data.message);
       localStorage.setItem("user",jsonString);
-      navigate("/admin");
+      window.location.href = "/admin";
     }catch(e){ 
       Error(e);
     }
