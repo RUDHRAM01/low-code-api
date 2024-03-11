@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import SideBar from "../components/common/SideBar";
 import AddIcon from "../assets/add.svg";
 import Search from "../assets/search.svg";
 import LinkIcon from '../assets/link.svg';
@@ -8,6 +7,7 @@ import Mongo from "../assets/mongo.svg";
 import { getProjectApi } from "../api/get/GetProjectApi";
 import { createProjectApi } from "../api/post/CreateProjectApi";
 import { Error } from "../apiRes/ErrorCatch";
+import "../styles/admin.css";
 
 function AdminDashboard() {
   const [isCreate, setIsCreate] = React.useState(false);
@@ -41,7 +41,6 @@ function AdminDashboard() {
 
   return (
     <div className="dashboard">
-      <SideBar />
       <div className="admin">
         <div className="nav">
           <span className="title">Admin</span>
