@@ -8,6 +8,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.title{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.breadCrumb{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #f3f3f3;
+  width: fit-content;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+
 .base{
   display: flex;
 }
@@ -53,6 +72,12 @@ body {
 
 .icon{
   height: 30px;
+  cursor: pointer;
+}
+
+.sm-icon{
+  height: 20px;
+  cursor: pointer;
 }
 
 
