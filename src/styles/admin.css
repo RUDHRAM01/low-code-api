@@ -205,6 +205,12 @@
     border-radius: 10px;
 }
 
+.project button{
+    border: none;
+    background-color: #00000000;
+    cursor: pointer;
+}
+
 .project{
     display: flex;
     flex-direction: column;
@@ -233,3 +239,4 @@
     font-weight: 600;
     color: aliceblue;
 }
+
