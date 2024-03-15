@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import AddIcon from "../assets/add.svg";
 import Search from "../assets/search.svg";
-import LinkIcon from '../assets/link.svg';
+import LinkIcon from "../assets/link.svg";
 import LaunchIcon from "../assets/launch.svg";
 import Mongo from "../assets/mongo.svg";
 import { getProjectApi } from "../api/get/GetProjectApi";
 import { createProjectApi } from "../api/post/CreateProjectApi";
 import { Error } from "../apiRes/ErrorCatch";
 import "../styles/admin.css";
+import { useNavigate } from "react-router-dom";
 
 function AdminDashboard() {
+  const navigate = useNavigate();
   const [isCreate, setIsCreate] = React.useState(false);
   const [config, setConfig] = React.useState({
     name: "",
@@ -78,13 +80,15 @@ function AdminDashboard() {
             </div>
             <div></div>
             <div className="projects">
-              {projects.map((project, index) => (
-                <div key={index} className="project">
-                  <div className="project-name">
-                    <p>{project.name}</p>
-                    <img src={LinkIcon} alt="link" className="icon" />
+              {projects.map((project, index) => (  
+                  <div key={index} className="project">
+                    <button onClick={()=>navigate(`/admin/${project._id}`)}>
+                    <div className="project-name">
+                      <p>{project.name}</p>
+                      <img src={LinkIcon} alt="link" className="icon" />
+                    </div>
+                    </button>
                   </div>
-                </div>
               ))}
             </div>
           </div>
