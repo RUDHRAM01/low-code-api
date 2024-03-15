@@ -1,0 +1,147 @@
+.view-project-container{
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.view-project-body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #f3f3f3;
+    padding: 20px;
+    margin: 10px;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-project-head{
+    display: flex;
+    width: 100%;
+}
+
+.view-project-title{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 0px 10px;
+    width: fit-content;
+    min-width: 250px;
+    width: 20%;
+}
+
+.view-project-nav{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0px 20px;
+    width: 80%;
+
+}
+
+.view-project-nav button{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    cursor: pointer;
+    color: #3498db;
+    flex-grow: 1;
+    font-weight: 600;
+}
+
+.view-pro-b-header{
+    display: flex;
+    flex-direction: column;
+}
+
+.view-pro-b-header h4{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.view-project-process{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #f3f3f3;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.projectProcess{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+    justify-content: space-between;
+    position: relative;
+    height: 20%;
+    background-color: black;
+    border-radius: 5px;
+  }
+
+  .processLine{
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-top: dashed 2px #8A8B8B;
+    top: 25%;
+    z-index: 1;
+  }
+
+  .process-title{
+    margin-top: 4px;
+    color: #0D4259;
+  }
+
+
+  .completed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 1.3rem;
+   
+}
+
+.dot{
+    position: absolute;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: #22A91F;
+    box-shadow: 0px 10px 10px 0px #0000005d;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .neumorphic {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 1.3rem;
+    display: flex;
+  }
+  .processStatus{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .process-title{
+    color: white;
+  }
