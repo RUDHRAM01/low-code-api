@@ -209,6 +209,13 @@
 }
 .schema-property{
   display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-gr{
+  display: flex;
   flex-direction: column;
 }
 

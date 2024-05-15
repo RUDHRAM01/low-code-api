@@ -5,6 +5,7 @@ import { getProjectByIdApi } from "../api/get/GetSingleProject";
 import { Error } from "../apiRes/ErrorCatch";
 import BreadCrumb from "./common/BreadCrumb";
 import Link from "../assets/link.svg";
+import toast from "react-hot-toast";
 
 function ViewProject() {
   const { id } = useParams();
@@ -25,13 +26,12 @@ function ViewProject() {
   const [config, setConfig] = React.useState({
     properties: {
       pname: "",
-      type: "",
-      isrequired: false,
+      type: "String",
       isunique: false,
       isref: false,
       refModel: "",
-    }
-  }); 
+    },
+  });
   const [schema, setSchema] = React.useState({
     name: "",
     properties: [],
@@ -45,26 +45,38 @@ function ViewProject() {
       project: id,
       properties: [...schema.properties, config.properties],
     });
+    setConfig({
+      properties: {
+        pname: "",
+        type: "String",
+        isrequired: false,
+        isunique: false,
+        isref: false,
+        refModel: "",
+      },
+    });
+    toast.success("Property Added to Schema");
   };
 
-  const handleChange = (e,val) => { 
-    if(val === "name"){
+  const handleChange = (e, val) => {
+    if (val === "name") {
       setSchema({
         ...schema,
         name: e.target.value,
       });
       setName(e.target.value);
-    }else{
+    } else {
       setConfig({
         ...config,
         properties: {
           ...config.properties,
-          [e.target.name]: e.target.value,
+          [e.target.name]: e.target.value === "true" ? true : e.target.value === "false" ? false : e.target.value,
         },
       });
     }
-  }
 
+    console.log(config);
+  };
 
   return (
     <div className="view-project-container">
@@ -129,36 +141,69 @@ function ViewProject() {
       <div className="view-project-body">
         <div className="create-schema-container">
           <div className="create-tabs">
-            <button className="tab" style={{
-              backgroundColor: tab === "create" ? "#22A91F" : "#fff",
-              color: tab === "create" ? "#fff" : "#22A91F",
-            }} onClick={()=>{
-              setTab("create")
-            }}>Create Schema</button>
-            <button className="tab" style={{
-              backgroundColor: tab === "view" ? "#22A91F" : "#fff",
-              color: tab === "view" ? "#fff" : "#22A91F",
-            }} onClick={()=>{
-              setTab("view")
-            }}>View Schema</button>
+            <button
+              className="tab"
+              style={{
+                backgroundColor: tab === "create" ? "#22A91F" : "#fff",
+                color: tab === "create" ? "#fff" : "#22A91F",
+              }}
+              onClick={() => {
+                setTab("create");
+              }}
+            >
+              Create Schema
+            </button>
+            <button
+              className="tab"
+              style={{
+                backgroundColor: tab === "view" ? "#22A91F" : "#fff",
+                color: tab === "view" ? "#fff" : "#22A91F",
+              }}
+              onClick={() => {
+                setTab("view");
+              }}
+            >
+              View Schema
+            </button>
           </div>
-         {
-            tab === "create" && (
-              <div className="create-schema-form">
-                 <h3>Create Schema</h3>
+          {tab === "create" && (
+            <div className="create-schema-form">
+              <h3>Create Schema</h3>
               <form>
                 <div className="form-group">
                   <label>Schema Name</label>
-                  <input name="name" value={name} onChange={(e)=>handleChange(e,'name')} type="text" placeholder="Schema Name" />
+                  <input
+                    name="name"
+                    value={name}
+                    onChange={(e) => handleChange(e, "name")}
+                    type="text"
+                    placeholder="Schema Name"
+                  />
                 </div>
                 <div className="form-group mt-2">
-                  <span className="schema-property-head">Schema Properties</span>
-                  <div className="schema-properties">
-                    <div className="schema-property">
+                  <span className="schema-property-head">
+                    Schema Properties
+                  </span>
+                  <div className="schema-property">
+                    <div className="form-gr" style={{ flexGrow: "1" }}>
                       <label>Property Name</label>
-                      <input value={config.properties.pname} name="pname" onChange={(e)=>handleChange(e,'na')} type="text" placeholder="Property Name" />
-                      <label className="mt-1">Property Type</label>
-                      <select className="" name="type" value={config.properties.type} onChange={(e)=>handleChange(e,'na')}>
+                      <input
+                        value={config.properties.pname}
+                        name="pname"
+                        onChange={(e) => handleChange(e, "na")}
+                        type="text"
+                        placeholder="Property Name"
+                      />
+                    </div>
+                    <div className="form-gr" style={{ flexGrow: "1" }}>
+                      <label>Property Type</label>
+                      <select
+                        className=""
+                        name="type"
+                        value={config.properties.type}
+                        onChange={(e) => handleChange(e, "na")}
+                        defaultValue={"String"}
+                      >
                         <option value="String">String</option>
                         <option value="Number">Number</option>
                         <option value="Boolean">Boolean</option>
@@ -167,50 +212,91 @@ function ViewProject() {
                         <option value="Object">Object</option>
                       </select>
                     </div>
+                    <div className="form-gr" style={{ flexGrow: "1" }}>
+                      <label>Is Ref</label>
+                      <select
+                        className=""
+                        name="isref"
+                        value={config.properties.isref}
+                        onChange={(e) => handleChange(e, "na")}
+                      >
+                        <option value={false}>No</option>
+                        <option value={true}>Yes</option>
+                      </select>
+                    </div>
+                    {config.properties.isref === false && (
+                      <div className="form-gr" style={{ flexGrow: "1" }}>
+                        <label>Is Unique</label>
+                        <select
+                          name="isunique"
+                          value={config.properties.isunique}
+                          onChange={(e) => handleChange(e, "na")}
+                        >
+                          <option value={false}>No</option>
+                          <option value={true}>Yes</option>
+                        </select>
+                      </div>
+                    )}
+                    {config.properties.isref === true && (
+                      <div className="form-gr" style={{ flexGrow: "1" }}>
+                        <label>Ref Schema</label>
+                        <select
+                          name="refModel"
+                          value={config.properties.refModel}
+                          onChange={(e) => handleChange(e, "na")}>
+                          <option value="">Select Schema</option>
+                          </select>
+                      </div>
+                    )}
+                  
                   </div>
-                  <button className="addPropertyBtn" onClick={addToSchema}>Add Property</button>
+                  <button className="addPropertyBtn" onClick={addToSchema}>
+                    Add Property
+                  </button>
                 </div>
               </form>
             </div>
-            )
-         }
-         {
-          tab !== 'create' && (
+          )}
+          {tab !== "create" && (
             <div className="view-schema">
-            <h3>Schema Preview { name.length > 0 && <span className="schema-name">{schema.name}</span>}</h3>
-            <div className="schema-preview">
-              <div className="schema-preview-body">
-                <div className="schema-preview-row">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Is Required</th>
-                        <th>Is Unique</th>
-                        <th>Is Ref</th>
-                        <th>Ref Model</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {schema.properties.map((prop, index) => (
-                        <tr key={index}>
-                          <td>{prop.pname}</td>
-                          <td>{prop.type}</td>
-                          <td>{prop.isrequired ? "Yes" : "No"}</td>
-                          <td>{prop.isunique ? "Yes" : "No"}</td>
-                          <td>{prop.isref ? "Yes" : "No"}</td>
-                          <td>{prop.refModel}</td>
+              <h3>
+                Schema Preview{" "}
+                {name.length > 0 && (
+                  <span className="schema-name">{schema.name}</span>
+                )}
+              </h3>
+              <div className="schema-preview">
+                <div className="schema-preview-body">
+                  <div className="schema-preview-row">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Type</th>
+                          <th>Is Required</th>
+                          <th>Is Unique</th>
+                          <th>Is Ref</th>
+                          <th>Ref Model</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        {schema.properties.map((prop, index) => (
+                          <tr key={index}>
+                            <td>{prop.pname}</td>
+                            <td>{prop.type}</td>
+                            <td>{prop.isrequired ? "Yes" : "No"}</td>
+                            <td>{prop.isunique ? "Yes" : "No"}</td>
+                            <td>{prop.isref ? "Yes" : "No"}</td>
+                            <td>{prop.refModel}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          )
-         }
+          )}
         </div>
       </div>
     </div>
