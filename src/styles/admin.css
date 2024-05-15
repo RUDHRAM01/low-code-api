@@ -120,28 +120,14 @@
     border-radius: 10px;
     background-color: white;
 }
-.form-group{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    color: black;
-}
 
-.form-group label{
-    font-size: 1.2rem;
-    font-weight: 600;
-}
 
 .connect{
     display: flex;
     align-items: center;
 }
 
-.form-group input{
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #1d8dbf;
-}
+
 
 .create-project-gr-btn{
     display: flex;
@@ -239,4 +225,5 @@
     font-weight: 600;
     color: aliceblue;
 }
+
 
