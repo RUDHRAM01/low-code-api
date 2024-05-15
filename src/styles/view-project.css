@@ -1,4 +1,4 @@
-.view-project-container{
+.view-project-container,.create-schema-main{
     display: flex;
     gap: 8px;
     flex-direction: column;
@@ -184,6 +184,11 @@
 }
 
 
+.create-tabs button:hover{
+  background-color: #22A91F !important;
+  color: white !important;
+  transition: 0.3s;
+}
 
 .schema-name{
   font-weight: 600;
@@ -206,6 +211,7 @@
 .addPropertyBtn{
   display: flex;
   align-items: center;
+  font-weight: 600;
 }
 .schema-property{
   display: flex;
@@ -233,3 +239,5 @@
   transition: 0.3s;
   width: 100%;
 }
+
+
