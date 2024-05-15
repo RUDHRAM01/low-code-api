@@ -24,21 +24,28 @@ function AdminDashboard() {
     const fetchData = async () => {
       const response = await getProjectApi();
       setProjects(response.data.message);
-      console.log(response.data.message);
     };
     fetchData();
   }, []);
 
   const createProject = async (e) => {
     e.preventDefault();
-    try {
-      setConfig((pre) => ({ ...pre, isLoading: true }));
-      await createProjectApi(config);
-      setConfig((pre) => ({ ...pre, isLoading: false }));
-    } catch (err) {
-      setConfig((pre) => ({ ...pre, isLoading: false }));
-      Error(err);
+    if(config.name.indexOf(' ') !== -1){
+      Error("Project name should not have space");
+    }else{
+      try {
+        setConfig((pre) => ({ ...pre, isLoading: true }));
+        await createProjectApi(config);
+        setConfig((pre) => ({ ...pre, isLoading: false }));
+        setIsCreate(false);
+        const response = await getProjectApi();
+        setProjects(response.data.message);
+      } catch (err) {
+        setConfig((pre) => ({ ...pre, isLoading: false }));
+        Error(err);
+      }
     }
+   
   };
 
   return (

@@ -21,6 +21,13 @@
 .view-project-head{
     display: flex;
     width: 100%;
+    flex-direction: column;
+}
+
+.project-head-name{
+  margin: 0px 20px;
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .view-project-title{

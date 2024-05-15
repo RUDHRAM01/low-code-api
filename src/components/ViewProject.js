@@ -25,15 +25,17 @@ function ViewProject() {
   return (
     <div className="view-project-container">
       <div className="view-project-head">
-        <div className="view-project-title">
-          <BreadCrumb root="admin" path={`${project.name}`} />
-          <h1 className="title">({project.name})</h1>
-        </div>
+       <div style={{display:"flex",margin:"20px",justifyContent:"space-between"}}>
+        <BreadCrumb root="admin" path={`view`} />
         <div className="view-project-nav">
           <button className="btn">Logs</button>
           <button className="btn">Environment</button>
           <button className="btn">Settings</button>
         </div>
+       </div>
+       <span className="project-head-name">
+        {project.name}
+       </span>
       </div>
       <div className="view-project-process">
       <div class="projectProcess">
