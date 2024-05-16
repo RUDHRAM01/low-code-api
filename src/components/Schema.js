@@ -34,21 +34,13 @@ function ViewProject() {
     calling();
   }, [id]);
 
-
   const [project, setProject] = React.useState({});
-
 
   return (
     <>
       <div className="view-project-container">
-       <TopBar project={project} id={id} path={id} />
-       {/* {
-        (data.length === 0 || isAdd) ? (
-          <CreateProject config={config} schema={schema} name={name} tab={tab} setTab={setTab} handleChange={handleChange} addToSchema={addToSchema} />
-        ) : ( */}
-          <ShowSchema data={data} />
-        {/* )
-       } */}
+        <TopBar project={project} id={id} path={id} />
+        <ShowSchema data={data} />
       </div>
     </>
   );

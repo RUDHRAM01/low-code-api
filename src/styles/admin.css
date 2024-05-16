@@ -36,7 +36,6 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-    width: fit-content;
 }
 
 .create-project button:hover{
@@ -62,7 +61,6 @@
     color: white;
     width: 100%;
     border: 1px solid #1d8dbf;
-    height: fit-content;
     display: flex;
     align-items: center;
 }
@@ -139,7 +137,6 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-    width: fit-content;
 }
 
 .create-project-gr-btn button:nth-child(1){
@@ -148,7 +145,6 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-    width: fit-content;
     border: 1px solid green;
     color: green;
 }
@@ -159,7 +155,6 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-    width: fit-content;
     border: 1px solid red;
     color: red;
 }   

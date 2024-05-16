@@ -1,17 +1,23 @@
 import React from 'react'
 import '../styles/show.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
-function ShowSchema({data,setIsAdd}) {
+function ShowSchema({data}) {
     const navigate = useNavigate();
+    const { id } = useParams();
   return (
     <div className='view-schema'>
         <div className='view-header'>
             <h4>Schema</h4>
-            <button className='createBtn' onClick={()=>{
+           <div style={{display: 'flex', gap: '20px'}}>
+           <button className='createBtn api-create' onClick={()=>{
+                navigate(`/admin/${id}/viewApi`)
+            }}>View API's</button>
+           <button className='createBtn' onClick={()=>{
                 navigate('./addSchema')
             }}>Add New Schema</button>
+           </div>
         </div>
         <div style={{
             display: 'flex',

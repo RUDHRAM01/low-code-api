@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function BreadCrumb(props) {
-  console.log(props);
   return (
     <div className="breadCrumb">
       <span>
