@@ -16,6 +16,7 @@ function CreateSchema() {
       type: "String",
       isunique: false,
       isref: false,
+      isrequired: false,
       refModel: "",
     },
   });
@@ -255,6 +256,7 @@ function CreateSchema() {
                             <th>Name</th>
                             <th>Type</th>
                             <th>Is Unique</th>
+                            <th>Is Required</th>
                             <th>Is Ref</th>
                             <th>Ref Model</th>
                           </tr>
@@ -265,8 +267,9 @@ function CreateSchema() {
                               <td>{prop.pname}</td>
                               <td>{prop.type}</td>
                               <td>{prop.isunique ? "Yes" : "No"}</td>
+                              <td>{prop.isrequired ? "Yes" : "No"}</td>
                               <td>{prop.isref ? "Yes" : "No"}</td>
-                              <td>{prop.refModel}</td>
+                              <td>{prop.refModel.length > 0 ? prop.refModel : "N/A"}</td>
                             </tr>
                           ))}
                         </tbody>

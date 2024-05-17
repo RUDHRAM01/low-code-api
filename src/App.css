@@ -53,3 +53,10 @@ table tr:nth-child(odd){
 table tr:hover{
     background-color: #f3f3f3;
 }
+
+.space-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
