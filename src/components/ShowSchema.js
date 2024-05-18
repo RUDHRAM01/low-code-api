@@ -52,7 +52,11 @@ function ShowSchema({ data }) {
                 />
                 <ul class="dropdown-menu">
                   <li>
-                    <button class="dropdown-item" style={{display:"flex",gap:"4px",alignItems:"center"}}>
+                    <button class="dropdown-item" style={{display:"flex",gap:"4px",alignItems:"center"}}
+                      onClick={() => {
+                        navigate(`/admin/${id}/editSchema/${item._id}`);
+                      }}
+                    >
                       <img src={editIcon} alt="edit" height={"16px"}/>
                       Edit
                     </button>
