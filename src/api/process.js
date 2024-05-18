@@ -44,4 +44,13 @@ const postRequest = (path, body) => {
     return axios.post(`${process.env.REACT_APP_MAIN}${path}`, body, config)
 };
 
-export { getRequest, postRequest };
+const putRequest = (path, body) => {
+    const config = {
+        withCredentials: true,
+        headers: generateHeaders(),
+    };
+
+    return axios.put(`${process.env.REACT_APP_MAIN}${path}`, body, config)
+};
+
+export { getRequest, postRequest, putRequest };
