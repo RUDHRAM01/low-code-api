@@ -14,7 +14,7 @@ function ViewApi({ project }) {
   const [userApi, setApis] = useState([]);
   const calculateHeight = () => {
     const viewApi = document.querySelector(".view-project-process");
-    const height = viewApi.offsetHeight;
+    const height = viewApi?.offsetHeight;
     return height + "px";
   };
   calculateHeight();

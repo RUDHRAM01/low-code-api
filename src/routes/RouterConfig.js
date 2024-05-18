@@ -7,6 +7,7 @@ import Schema from "../components/Schema";
 import CreateSchema from "../components/CreateSchema";
 import CreateApi from "../components/CreateApi";
 import Api from "../components/Api";
+import EditSchema from "../components/EditSchema";
 
 function RouterConfig() {
   return (
@@ -16,6 +17,7 @@ function RouterConfig() {
         <Route path="/admin/:id" element={<Schema />} />
         <Route path="/admin/:id/addSchema" element={<CreateSchema />} />
         <Route path="/admin/:id/createApi" element={<CreateApi />} />
+        <Route path="/admin/:id/editSchema/:editId" element={<EditSchema />} />
         <Route path="/admin/:id/viewApi" element={<Api />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />

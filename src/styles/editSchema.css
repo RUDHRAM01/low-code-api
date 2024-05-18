@@ -1,0 +1,21 @@
+.editSchema-container{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    width: 100%;
+}
+
+.editSchema-main{
+    padding: 10px 0px;
+}
+
+.saveBtn{
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
