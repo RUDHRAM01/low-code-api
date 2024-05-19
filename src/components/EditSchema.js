@@ -191,19 +191,6 @@ function EditSchema() {
             >
               {edit ? "Update Property" : "Add Property"}
             </button>
-            <button
-              type="button"
-              className="addPropertyBtn"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              style={{
-                border: "1px solid #3498db",
-                color: "#3498db",
-                background: "none",
-              }}
-            >
-              Create Schema
-            </button>
           </div>
         </form>
       </div>

@@ -40,7 +40,7 @@ function ViewProject() {
     <>
       <div className="view-project-container">
         <TopBar project={project} id={id} path={id} />
-        <ShowSchema data={data} />
+        <ShowSchema data={data} setData={setData}/>
       </div>
     </>
   );

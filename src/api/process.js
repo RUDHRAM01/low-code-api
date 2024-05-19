@@ -31,7 +31,6 @@ const getRequest = (path) => {
         withCredentials: true,
         headers: generateHeaders(),
     };
-    console.log(process.env.REACT_APP_MAIN);
     return axios.get(`${process.env.REACT_APP_MAIN}${path}`, config)
 };
 
@@ -53,4 +52,14 @@ const putRequest = (path, body) => {
     return axios.put(`${process.env.REACT_APP_MAIN}${path}`, body, config)
 };
 
-export { getRequest, postRequest, putRequest };
+const deleteRequest = (path) => {
+    const config = {
+        withCredentials: true,
+        headers: generateHeaders(),
+    };
+    console.log('path', config);
+    return axios.delete(`${process.env.REACT_APP_MAIN}${path}`, config)
+};
+
+
+export { getRequest, postRequest, putRequest, deleteRequest };

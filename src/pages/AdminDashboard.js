@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import AddIcon from "../assets/add.svg";
-import Search from "../assets/search.svg";
+import AddIcon from "../assets/add.png";
+import Search from "../assets/searchB.svg";
 import LinkIcon from "../assets/link.svg";
+import mongodbIcon from "../assets/mongodb.svg";
 import LaunchIcon from "../assets/launch.svg";
 import Mongo from "../assets/mongo.svg";
 import { getProjectApi } from "../api/get/GetProjectApi";
@@ -30,9 +31,9 @@ function AdminDashboard() {
 
   const createProject = async (e) => {
     e.preventDefault();
-    if(config.name.indexOf(' ') !== -1){
+    if (config.name.indexOf(" ") !== -1) {
       Error("Project name should not have space");
-    }else{
+    } else {
       try {
         setConfig((pre) => ({ ...pre, isLoading: true }));
         await createProjectApi(config);
@@ -45,7 +46,6 @@ function AdminDashboard() {
         Error(err);
       }
     }
-   
   };
 
   return (
@@ -60,43 +60,67 @@ function AdminDashboard() {
           />
         </div>
         {!isCreate && (
-          <div className="create-project">
-            <button
-              onClick={() => {
-                setIsCreate(true);
-              }}
+          <div className="space-between" style={{ justifyContent: "center" }}>
+            <div
+              class="search-container"
+              style={{ background: "none", margin: 0 }}
             >
-              <img src={AddIcon} alt="add" className="icon" />
-              Create Project
-            </button>
+              <input
+                type="text"
+                placeholder="Search"
+                className="search-input"
+              />
+              {/* <i className="fas fa-search search-icon"></i> */}
+              <img
+                src={Search}
+                alt="search"
+                className="search-icon"
+                height={"20px"}
+              />
+            </div>
+            <div className="create-project">
+              <button
+                onClick={() => {
+                  setIsCreate(true);
+                }}
+              >
+                <img src={AddIcon} alt="add" className="icon" />
+                Create Project
+              </button>
+            </div>
           </div>
         )}
         {!isCreate && (
           <div className="projects-container">
-            <div className="search-project-container">
-              <img src={Search} alt="search" className="search-icon" />
-              <input
-                type="text"
-                placeholder="Search Project"
-                className="search-project"
+            <div className="tech">
+              <img
+                src={mongodbIcon}
+                alt="mongoDB"
+                className="icon"
+                style={{ border: "2px solid white", borderRadius: "50%" }}
               />
+            </div>
+            <div className="three-dot">
+              <div></div>
+              <div></div>
               <div></div>
             </div>
-            <div>
-              <span className="project-title">Projects</span>
-            </div>
-            <div></div>
-            <div className="projects">
-              {projects.map((project, index) => (  
-                  <div key={index} className="project">
-                    <button onClick={()=>navigate(`/admin/${project._id}`)}>
-                    <div className="project-name">
-                      <p>{project.name}</p>
-                      <img src={LinkIcon} alt="link" className="icon" />
+            <div style={{display:"flex",flexDirection:"column",gap:"20px",background:"#fff",padding:"10px"}}>
+              <div>
+                <span className="project-title">Projects</span>
+              </div>
+              <div className="projects">
+                {projects.map((project, index) => (
+                  <button onClick={() => navigate(`/admin/${project._id}`)}>
+                    <div key={index} className="project">
+                      <div className="project-name">
+                        <p>{project.name}</p>
+                        <img src={LinkIcon} alt="link" className="icon" />
+                      </div>
                     </div>
-                    </button>
-                  </div>
-              ))}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}

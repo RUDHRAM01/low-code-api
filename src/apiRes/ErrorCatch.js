@@ -1,7 +1,6 @@
 import toast from "react-hot-toast";
 
 const Error = (res) => {
-    console.log(res);
     if(res.response){
         toast.error(res.response.data.error, {
             position: "top-center",
