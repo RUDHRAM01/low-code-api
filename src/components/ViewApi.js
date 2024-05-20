@@ -101,12 +101,13 @@ function ViewApi({ project }) {
               </div>
               <div className="singleApi">
                 <a
-                  href={`${process.env.REACT_APP_MAIN}/${project.name}/${id}/${item.endpoint}`}
+                  href={`${process.env.REACT_APP_MAIN}/${project.name}/${id}/${item.endpoint}${(item.method === "DELETE" || item.method === "PUT") ? '/:id' : ''}`}
                   target="_blank"
                   rel="noreferrer"
                   style={{ textDecoration: "none", color: "white" }}
                 >
                   {`${process.env.REACT_APP_MAIN}/${project.name}/${id}/${item.endpoint}`}
+                  {(item.method === "DELETE" || item.method === "PUT") && '/:id'}
                 </a>
               </div>
             </div>

@@ -159,6 +159,18 @@ function EditSchema() {
                   <option value={true}>Yes</option>
                 </select>
               </div>
+              <div className="form-gr" style={{ flexGrow: "1" }}>
+                <label>Is Required</label>
+                <select
+                  className=""
+                  name="isrequired"
+                  value={config.isrequired}
+                  onChange={handleChange}
+                >
+                  <option value={false}>No</option>
+                  <option value={true}>Yes</option>
+                </select>
+              </div>
               {config.isref === false && (
                 <div className="form-gr" style={{ flexGrow: "1" }}>
                   <label>Is Unique</label>

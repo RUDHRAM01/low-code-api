@@ -54,8 +54,8 @@ function CreateApi() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await createApi(api,id);
-      toast.success('API Created Successfully');
+      await createApi(api, id);
+      toast.success("API Created Successfully");
       setApi({
         schema: "",
         name: "",
@@ -129,7 +129,11 @@ function CreateApi() {
                   style={{ fontSize: "12px" }}
                 >
                   {/* https://example.com/users/ */}
-                  {`${process.env.REACT_APP_MAIN}/${project.name}/${id}/${findName(api.schema) === undefined ? '' : findName(api.schema)}/`}
+                  {`${process.env.REACT_APP_MAIN}/${project.name}/${id}/${
+                    findName(api.schema) === undefined
+                      ? ""
+                      : findName(api.schema)
+                  }/`}
                 </span>
                 <input
                   type="text"
@@ -140,6 +144,18 @@ function CreateApi() {
                   onChange={handleChange}
                   value={api.endpoint}
                 />
+
+               {
+                api.method !== 'GET' && api.method !== '' && api.method !== 'POST' &&
+                <span
+                class="input-group-text"
+                id="basic-addon3"
+                style={{ fontSize: "12px" }}
+              >
+                
+                {`/:id`}
+              </span>
+               }
               </div>
             </div>
             <div className="form-group">
@@ -157,7 +173,9 @@ function CreateApi() {
                 <option value="DELETE">DELETE</option>
               </select>
             </div>
-            <button className="createBtn" onClick={handleSubmit}>Create API</button>
+            <button className="createBtn" onClick={handleSubmit}>
+              Create API
+            </button>
           </form>
         </div>
       </div>
