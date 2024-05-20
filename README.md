@@ -1,3 +1,5 @@
+# Currently Dev Mode
+<img src="https://mychatrs.s3.amazonaws.com/657840a23586a1b845dc3f0b/7668a967-6795-4670-90ad-2b1a17dc2d79" align="right" />
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
