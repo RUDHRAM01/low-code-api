@@ -132,7 +132,7 @@ function CreateSchema() {
                   setTab("view");
                 }}
               >
-                View Schema
+               Schema Preview 
               </button>
             </div>
             {tab === "create" && (
