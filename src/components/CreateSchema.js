@@ -182,6 +182,18 @@ function CreateSchema() {
                         </select>
                       </div>
                       <div className="form-gr" style={{ flexGrow: "1" }}>
+                        <label>Is Required</label>
+                        <select
+                          className=""
+                          name="isrequired"
+                          value={config.properties.isrequired}
+                          onChange={(e) => handleChange(e, "na")}
+                        >
+                          <option value={false}>No</option>
+                          <option value={true}>Yes</option>
+                        </select>
+                      </div>
+                      <div className="form-gr" style={{ flexGrow: "1" }}>
                         <label>Is Ref</label>
                         <select
                           className=""
