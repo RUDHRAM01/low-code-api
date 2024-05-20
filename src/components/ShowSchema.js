@@ -20,6 +20,7 @@ function ShowSchema({ data,setData }) {
       toast.success("Schema Deleted Successfully");
       const res = await getSchemaApi(id);
       setData(res.data.message);
+      setDeleteId("");
     } catch (error) {
       Error(error);
     }
@@ -113,6 +114,7 @@ function ShowSchema({ data,setData }) {
                         <th>Name</th>
                         <th>Type</th>
                         <th>Is Unique</th>
+                        <th>Is Required</th>
                         <th>Is Ref</th>
                         <th>Ref Model</th>
                       </tr>
@@ -123,6 +125,7 @@ function ShowSchema({ data,setData }) {
                           <td>{prop.pname}</td>
                           <td>{prop.type}</td>
                           <td>{prop.isunique ? "Yes" : "No"}</td>
+                          <td>{prop.isrequired ? "Yes" : "No"}</td>
                           <td>{prop.isref ? "Yes" : "No"}</td>
                           <td>
                             {prop.refModel.length > 0 ? prop.refModel : "N/A"}
