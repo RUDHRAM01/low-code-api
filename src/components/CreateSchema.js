@@ -113,8 +113,8 @@ function CreateSchema() {
               <button
                 className="tab"
                 style={{
-                  backgroundColor: tab === "create" ? "#22A91F" : "#fff",
-                  color: tab === "create" ? "#fff" : "#22A91F",
+                  backgroundColor: tab === "create" ? "#8cb5ed" : "#fff",
+                  color: tab === "create" ? "#fff" : "#8cb5ed",
                 }}
                 onClick={() => {
                   setTab("create");
@@ -125,8 +125,8 @@ function CreateSchema() {
               <button
                 className="tab"
                 style={{
-                  backgroundColor: tab === "view" ? "#22A91F" : "#fff",
-                  color: tab === "view" ? "#fff" : "#22A91F",
+                  backgroundColor: tab === "view" ? "#8cb5ed" : "#fff",
+                  color: tab === "view" ? "#fff" : "#8cb5ed",
                 }}
                 onClick={() => {
                   setTab("view");
@@ -236,14 +236,9 @@ function CreateSchema() {
                     </button>
                     <button
                       type="button"
-                      className="addPropertyBtn"
+                      className="addPropertyBtn createSch"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
-                      style={{
-                        border: "1px solid #3498db",
-                        color: "#3498db",
-                        background: "none",
-                      }}
                     >
                       Create Schema
                     </button>

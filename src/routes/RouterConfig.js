@@ -8,12 +8,15 @@ import CreateSchema from "../components/CreateSchema";
 import CreateApi from "../components/CreateApi";
 import Api from "../components/Api";
 import EditSchema from "../components/EditSchema";
+import Profile from "../components/Profile";
+
 
 function RouterConfig() {
   return (
     <>
       <Routes>
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/admin/:id" element={<Schema />} />
         <Route path="/admin/:id/addSchema" element={<CreateSchema />} />
         <Route path="/admin/:id/createApi" element={<CreateApi />} />

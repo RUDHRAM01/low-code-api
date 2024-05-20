@@ -3,6 +3,7 @@ import "../styles/show.css";
 import { useNavigate, useParams } from "react-router-dom";
 import moreIcon from "../assets/more.svg";
 import editIcon from "../assets/edit.svg";
+import addIcon from "../assets/add.png";
 import deleteIcon from "../assets/delete.svg";
 import { deleteSchemaApi } from "../api/delete/DeleteSchemaApi";
 import { Error } from "../apiRes/ErrorCatch";
@@ -45,6 +46,7 @@ function ShowSchema({ data,setData }) {
                 navigate("./addSchema");
               }}
             >
+              <img src={addIcon} alt="add" height={"20px"} />
               Add New Schema
             </button>
           </div>

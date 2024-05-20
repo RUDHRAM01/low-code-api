@@ -47,7 +47,6 @@
     gap: 10px;
     margin: 0px 20px;
     width: 80%;
-
 }
 
 .view-project-nav button{
@@ -59,11 +58,16 @@
     border-radius: 5px;
     background-color: #f3f3f3;
     cursor: pointer;
-    color: #3498db;
+    color: #8cb5ed;
     flex-grow: 1;
     font-weight: 600;
 }
 
+.view-project-nav button:hover{
+    background-color: #0D4259;
+    color: white;
+    transition: 0.3s;
+}
 
 
 .view-pro-b-header h4{
@@ -96,7 +100,7 @@
     justify-content: space-between;
     position: relative;
     height: 20%;
-    background-color: black;
+    background-color: #8cb5ed;
     border-radius: 5px;
   }
 
@@ -104,7 +108,7 @@
     position: absolute;
     width: 100%;
     height: 5px;
-    border-top: dashed 2px #8A8B8B;
+    border-top: dashed 2px black;
     top: 25%;
     z-index: 1;
   }
@@ -129,7 +133,7 @@
     border-radius: 50%;
     width: 15px;
     height: 15px;
-    background-color: #22A91F;
+    background-color: #0D4259;
     box-shadow: 0px 10px 10px 0px #0000005d;
     top: 50%;
     left: 50%;
@@ -188,7 +192,7 @@
 
 
 .create-tabs button:hover{
-  background-color: #22A91F !important;
+  background-color: #8cb5ed !important;
   color: white !important;
   transition: 0.3s;
 }
@@ -234,13 +238,25 @@
   justify-content: center;
   gap: 10px;
   border: none;
-  background-color: #1d8dbf;
+  background-color: #8cb5ed;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
   width: 100%;
+}
+
+.createSch{
+  background: none !important;
+  color: #8cb5ed !important;
+  border: 2px solid #8cb5ed !important;
+}
+
+.addPropertyBtn:hover{
+  background: #0D4259 !important;
+  border: 2px solid #0D4259 !important;
+  color: white !important;
 }
 
 

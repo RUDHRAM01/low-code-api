@@ -7,7 +7,7 @@ function BreadCrumb(props) {
       <span>
         <Link
           to={`/${props.root}`}
-          style={{ textDecoration: "none", color: "#3498db" }}
+          style={{ textDecoration: "none", color: "#8cb5ed",fontWeight:"bold" }}
         >
           {props?.root}
         </Link>
@@ -18,7 +18,8 @@ function BreadCrumb(props) {
           to={`/${props.root}/${props?.path}`}
           style={{
             textDecoration: "none",
-            color: props?.subpath ? "#3498db" : "black",
+            color: props?.subpath ? "#8cb5ed" : "black",
+            fontWeight: props?.subpath ? "bold" : "normal",
           }}
         >
           {props?.path}

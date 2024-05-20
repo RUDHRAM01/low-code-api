@@ -6,7 +6,7 @@
 .admin{
     display: flex;
     flex-direction: column;
-    background-color:#1d8dbf;
+    background-color:#8cb5ed;
     color: white;
     width: 100%;
 }
@@ -66,14 +66,14 @@
     border-radius: 5px;
     color: white;
     width: 100%;
-    border: 1px solid #1d8dbf;
+    border: 1px solid #8cb5ed;
     display: flex;
     align-items: center;
 }
 
 .search-project-container img{
     height: 20px;
-    background-color: #1d8dbf;
+    background-color: #8cb5ed;
     padding: 10px; 
 }
 
@@ -93,7 +93,7 @@
 }
 
 .search-project::placeholder{
-    color: #1d8dbf;
+    color: #8cb5ed;
 }
 
 .create-title{
@@ -269,7 +269,7 @@
 }
 
 .project:hover{
-    background-color: #1d8dbf8c;
+    background-color: #0D4259;
     transition: 0.3s;
     border: none;
     font-weight: bolder;

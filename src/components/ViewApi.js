@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getApi } from "../api/get/GetApi";
 import deleteIcon from "../assets/delete.svg";
 import copyIcon from "../assets/copy.svg";
+import addIcon from "../assets/add.png";
 import searchIcon from "../assets/searchB.svg";
 import { getSchemaNameApi } from "../api/get/GetSchemaNameApi";
 import toast from "react-hot-toast";
@@ -92,6 +93,7 @@ function ViewApi({ project }) {
               navigate(`/admin/${id}/createApi`);
             }}
           >
+             <img src={addIcon} alt="add" height={"20px"} />
             Create API's
           </button>
         </div>
@@ -114,7 +116,7 @@ function ViewApi({ project }) {
             <div key={index} className="apis">
               <div className="space-between">
                 <div style={{display:"flex",flexDirection:"column"}}>
-                  <h5>{item.name}</h5>
+                  <h5 style={{color:"#0D4259"}}>{item.name}</h5>
                   <div style={{display:"flex",gap:"4px"}}>
                     <span className="circle-chip">{item.method}</span>
                     <span className="circle-chip">{findName(item.schema)}</span>

@@ -19,7 +19,7 @@
 }
 
 .createBtn{
-    background-color: #4CAF50;
+    background-color: #0D4259;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -30,6 +30,21 @@
     border-radius: 5px;
 }
 
+.createBtn img{
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+}
+
+.createBtn:hover{
+    background-color: #8cb5ed;
+    transition: 0.3s;
+}
+
 .api-create{
-    background: #3498db;
+    background: #8cb5ed;
+}
+
+.api-create:hover{
+    background: #0D4259;
+    transition: 0.3s;
 }
