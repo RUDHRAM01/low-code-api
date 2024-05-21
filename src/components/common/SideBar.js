@@ -5,9 +5,11 @@ import Settings from "../../assets/settings.svg";
 import project from "../../assets/project.svg";
 import Logo from "../../assets/logo.jpg";
 import RouterConfig from "../../routes/RouterConfig";
+import { useNavigate } from "react-router-dom";
 
 function SideBar() {
   const [isShow, setIsShow] = React.useState(true);
+  const navigate = useNavigate();
   useEffect(() => {
     if (
       window.location.pathname === "/login" ||
@@ -19,6 +21,11 @@ function SideBar() {
       setIsShow(true);
     }
   }, []);
+
+  const handleNavigation = (location) => {
+    navigate(location);
+  }
+
 
   return (
     <>
@@ -36,32 +43,32 @@ function SideBar() {
                 <span>Low code api</span>
               </div>
               <div className="container-side">
-                <div className="side-bar-item">
+                <button className="side-bar-item" onClick={()=>handleNavigation('/admin')}>
                   <img src={Home} alt="home" height={24} />
                   Home
-                </div>
-                <div className="side-bar-item">
+                </button>
+                <button className="side-bar-item" onClick={()=>handleNavigation('/projects')}>
                   <img src={project} alt="settigs" height={24} />
                   Projects
-                </div>
-                <div className="side-bar-item">
+                </button>
+                <button className="side-bar-item" onClick={()=>handleNavigation('/projects')}>
                   <img src={Analytics} alt="Analytics" height={24} />
                   Analytics
-                </div>
-                <div className="side-bar-item">
+                </button>
+                <button className="side-bar-item" onClick={()=>handleNavigation('/projects')}>
                   <img src={Settings} alt="settigs" height={24} />
                   Settings
-                </div>
+                </button>
               </div>
             </div>
-            <div className="side-bar-bottom"> 
+            <button className="side-bar-bottom" onClick={()=>handleNavigation('/profile')}> 
               <img
                 src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
                 alt="profile"
                height={"40px"}
               />
               Profile
-            </div>
+            </button>
           </div>
         )}
         <RouterConfig />

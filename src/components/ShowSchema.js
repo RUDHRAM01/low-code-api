@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/show.css";
 import { useNavigate, useParams } from "react-router-dom";
 import moreIcon from "../assets/more.svg";
+import infoIcon from "../assets/info.svg";
 import editIcon from "../assets/edit.svg";
 import addIcon from "../assets/add.png";
 import deleteIcon from "../assets/delete.svg";
@@ -10,7 +11,7 @@ import { Error } from "../apiRes/ErrorCatch";
 import toast from "react-hot-toast";
 import { getSchemaApi } from "../api/get/GetSchemaApi";
 
-function ShowSchema({ data,setData }) {
+function ShowSchema({ data, setData }) {
   const navigate = useNavigate();
   const { id } = useParams();
   const [deleteId, setDeleteId] = useState("");
@@ -65,49 +66,71 @@ function ShowSchema({ data,setData }) {
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
                   <h5>{item.name}</h5>
-                  <img
-                    src={moreIcon}
-                    alt="more"
-                    height={"26px"}
-                    class="btn btn-secondary dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                  />
-                  <ul class="dropdown-menu">
-                    <li>
-                      <button
-                        class="dropdown-item"
-                        style={{
-                          display: "flex",
-                          gap: "4px",
-                          alignItems: "center",
-                        }}
-                        onClick={() => {
-                          navigate(`/admin/${id}/editSchema/${item._id}`);
-                        }}
-                      >
-                        <img src={editIcon} alt="edit" height={"16px"} />
-                        Edit
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        class="dropdown-item"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        style={{
-                          display: "flex",
-                          gap: "4px",
-                          alignItems: "center",
-                        }}
-                        onClick={() => {
-                          setDeleteId(item._id);
-                        }}
-                      >
-                        <img src={deleteIcon} alt="edit" height={"16px"} />
-                        Delete
-                      </button>
-                    </li>
-                  </ul>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <button
+                      style={{
+                        display: "flex",
+                        gap: "4px",
+                        alignItems: "center",
+                        background: "none",
+                        border: "none",
+                        fontWeight: "bold",
+                        color: "#0D4259",
+                      }}
+                    >
+                      <img src={infoIcon} alt="info" height={"20px"} />
+                      View Data
+                    </button>
+                    <img
+                      src={moreIcon}
+                      alt="more"
+                      height={"26px"}
+                      class="btn btn-secondary dropdown-toggle"
+                      data-bs-toggle="dropdown"
+                    />
+                    <ul class="dropdown-menu">
+                      <li>
+                        <button
+                          class="dropdown-item"
+                          style={{
+                            display: "flex",
+                            gap: "4px",
+                            alignItems: "center",
+                          }}
+                          onClick={() => {
+                            navigate(`/admin/${id}/editSchema/${item._id}`);
+                          }}
+                        >
+                          <img src={editIcon} alt="edit" height={"16px"} />
+                          Edit
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="dropdown-item"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                          style={{
+                            display: "flex",
+                            gap: "4px",
+                            alignItems: "center",
+                          }}
+                          onClick={() => {
+                            setDeleteId(item._id);
+                          }}
+                        >
+                          <img src={deleteIcon} alt="edit" height={"16px"} />
+                          Delete
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
                 <div>
                   <table>

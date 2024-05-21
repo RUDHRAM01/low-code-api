@@ -16,6 +16,7 @@ function RouterConfig() {
     <>
       <Routes>
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/projects" element={<AdminDashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin/:id" element={<Schema />} />
         <Route path="/admin/:id/addSchema" element={<CreateSchema />} />

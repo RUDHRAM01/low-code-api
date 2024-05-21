@@ -71,8 +71,7 @@ body {
 .container-side {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px;
+  margin-top: 10px;
 }
 
 .side-bar-item {
@@ -80,6 +79,20 @@ body {
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.side-bar-item:hover {
+ background: #3498db;
+ color: white;
+ transition: 0.3s;
+}
+
+.side-bar-item:hover img{
+  filter: brightness(1) invert(1);
 }
 
 .logo {
